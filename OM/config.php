@@ -31,7 +31,12 @@ function flash($message, $type = 'info') {
 function is_logged_in() {
     return isset($_SESSION['user']);
 }
-
+function is_admin($role) {
+    $role = $_SESSION['role'];
+    if ($role === 'admin'){
+        redirect('admin_dashboard');
+    }
+}
 // Fonction pour vérifier les permissions
 function check_permission($required_role) {
     if (!is_logged_in() || $_SESSION['user']['role'] !== $required_role) {

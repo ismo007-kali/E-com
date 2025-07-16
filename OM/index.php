@@ -40,8 +40,8 @@ switch($page) {
     case 'admin_dashboard':
         include 'pages/admin_dashboard.php';
         break;
-    case 'admin_vendors':
-        include 'pages/admin_vendors.php';
+    case 'admin_users':
+        include 'pages/admin_users.php';
         break;
     case 'vendor_dashboard':
         include 'pages/vendor_dashboard.php';

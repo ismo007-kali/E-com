@@ -11,6 +11,7 @@
     <!-- CSS personnalisé -->
     <link rel="stylesheet" href="/assets/css/custom.css">
     <link rel="stylesheet" href="/assets/css/animations.css">
+    <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- jQuery -->
@@ -24,7 +25,7 @@
     $user_agent = $_SERVER['HTTP_USER_AGENT'];
 
     try {
-        $stmt = $pdo->prepare("INSERT INTO visits (ip_address, user_agent, page) VALUES (?, ?, ?)");
+        $stmt = $pdo->prepare("INSERT INTO visits (ip_address, user_agent, page) VALUES (REMOTE_ADDR, HTTP_USER_AGENT, page)");
         $stmt->execute([$ip, $user_agent, $page]);
     } catch(PDOException $e) {
         // Ignorer les erreurs d'insertion
@@ -73,7 +74,7 @@
         </span>
     </div>
 
-    <div class="container mt-5 pt-5">
+    <div class="container ">
         <!-- Contenu principal -->
         <main class="py-4">
             <?php if (isset($_SESSION['flash'])): ?>
