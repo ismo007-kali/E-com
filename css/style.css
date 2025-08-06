@@ -74,7 +74,6 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 10px 0;
-  border-radius: 15px 15px 0 0;
 }
 
 #navbarSupportedContent.innerpage_navbar {
@@ -237,7 +236,8 @@ a:focus {
   background-color: #000000;
   background-color: #242289;
   padding: 25px;
-  border-radius: 0 0 15px 15px;
+  border-radius: 15px;
+  margin-top: 10px;
 }
 
 .slider_section .row {
