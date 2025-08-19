@@ -37,6 +37,7 @@
     <header class="header_section">
       <nav class="navbar navbar-expand-lg custom_nav-container ">
         <a class="navbar-brand" href="index.php">
+          <img src="images/mt-logo.png" alt="MODE ET TENDANCE" style="height: 50px; width: auto;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class=""></span>
@@ -76,11 +77,11 @@
             <a href="">
               <i class="fa fa-shopping-bag" aria-hidden="true"></i>
             </a>
-           <!--  <form class="form-inline ">
+            <form class="form-inline ">
               <button class="btn nav_search-btn" type="submit">
                 <i class="fa fa-search" aria-hidden="true"></i>
               </button>
-            </form> -->
+            </form> 
           </div>
         </div>
       </nav>

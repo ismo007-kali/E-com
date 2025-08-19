@@ -60,7 +60,7 @@ body {
 }
 
 .heading_container h2 span {
-  color: #dc143c;
+  color: #FF8C00;
 }
 
 .heading_container.heading_center {
@@ -81,12 +81,12 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: linear-gradient(-90deg, #ff4500 0%, #dc143c 100%);
+  background: linear-gradient(-90deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
 #navbarSupportedContent {
   width: 100%;
-  background: linear-gradient(135deg, #ff4500 0%, #dc143c 100%);
+  background: linear-gradient(135deg, #FF8C00 0%, #DC143C 100%);
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -94,7 +94,7 @@ body {
 }
 
 #navbarSupportedContent.innerpage_navbar {
-  background: linear-gradient(135deg, #ff4500 0%, #dc143c 100%);
+  background: linear-gradient(135deg, #FF8C00 0%, #DC143C 100%);
   border-radius: 10px;
   -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25);
           box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25);
@@ -255,12 +255,12 @@ a:focus {
 
 /*end header section*/
 .slider_section .slider_container {
-  color: #fefefe;
-  background: linear-gradient(135deg, #dc143c 0%, #ff4500 100%);
+  color: #2c3e50;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
   padding: 25px;
   border-radius: 15px;
   margin-top: 10px;
-  box-shadow: 0 8px 25px rgba(220, 20, 60, 0.3);
+  box-shadow: 0 8px 25px rgba(107, 115, 255, 0.15);
 }
 
 .slider_section .row {
@@ -292,7 +292,7 @@ a:focus {
   font-weight: 700;
   font-size: 3.5rem;
   margin-bottom: 10px;
-  color: #ff4500;
+  color: #FF8C00;
   text-transform: uppercase;
   font-family: "Roboto", sans-serif;
   letter-spacing: 1.5px;
@@ -302,7 +302,7 @@ a:focus {
 .slider_section .detail-box a {
   display: inline-block;
   padding: 12px 40px;
-  background: linear-gradient(135deg, #ff4500 0%, #dc143c 100%);
+  background: linear-gradient(135deg, #FF8C00 0%, #DC143C 100%);
   color: #ffffff;
   border: none;
   border-radius: 25px;
@@ -310,14 +310,14 @@ a:focus {
   transition: all .3s;
   margin-top: 25px;
   text-transform: uppercase;
-  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   letter-spacing: 0.5px;
 }
 
 .slider_section .detail-box a:hover {
-  background: linear-gradient(135deg, #dc143c 0%, #ff4500 100%);
+  background: linear-gradient(135deg, #DC143C 0%, #FF8C00 100%);
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4);
@@ -398,7 +398,7 @@ a:focus {
 }
 
 .shop_section .box .detail-box h6 span {
-  color: #ff4500;
+  color: #FF8C00;
 }
 
 .shop_section .box .new {
@@ -434,17 +434,17 @@ a:focus {
 .shop_section .btn-box a {
   display: inline-block;
   padding: 12px 40px;
-  background: linear-gradient(135deg, #ff4500 0%, #dc143c 100%);
+  background: linear-gradient(135deg, #FF8C00 0%, #DC143C 100%);
   color: #ffffff;
   border: none;
   border-radius: 25px;
   -webkit-transition: all .3s;
   transition: all .3s;
-  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
 }
 
 .shop_section .btn-box a:hover {
-  background: linear-gradient(135deg, #dc143c 0%, #ff4500 100%);
+  background: linear-gradient(135deg, #DC143C 0%, #FF8C00 100%);
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4);
@@ -457,10 +457,10 @@ a:focus {
 
 .saving_section .box {
   padding-top: 45px;
-  background: linear-gradient(135deg, #ff4500 0%, #dc143c 100%);
+  background: linear-gradient(135deg, #FF8C00 0%, #DC143C 100%);
   color: #ffffff;
   border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(255, 69, 0, 0.3);
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
 }
 
 .saving_section .row {
@@ -503,7 +503,7 @@ a:focus {
 .saving_section .detail-box .btn-box .btn1 {
   display: inline-block;
   padding: 12px 0;
-  background: linear-gradient(135deg, #dc143c 0%, #ff4500 100%);
+  background: linear-gradient(135deg, #DC143C 0%, #FF8C00 100%);
   color: #ffffff;
   border: none;
   border-radius: 25px;
@@ -513,10 +513,10 @@ a:focus {
 }
 
 .saving_section .detail-box .btn-box .btn1:hover {
-  background: linear-gradient(135deg, #ff4500 0%, #dc143c 100%);
+  background: linear-gradient(135deg, #FF8C00 0%, #DC143C 100%);
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 69, 0, 0.4);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
 }
 
 .saving_section .detail-box .btn-box .btn2 {
@@ -550,7 +550,7 @@ a:focus {
 .why_section .box .img-box svg {
   width: 55px;
   height: auto;
-  fill: #dc143c;
+  fill: #FF8C00;
 }
 
 .gift_section {
@@ -559,10 +559,10 @@ a:focus {
 }
 
 .gift_section .box {
-  background: linear-gradient(135deg, #dc143c 0%, #ff4500 100%);
+  background: linear-gradient(135deg, #FF8C00 0%, #DC143C 100%);
   border-radius: 15px;
   color: #ffffff;
-  box-shadow: 0 8px 25px rgba(220, 20, 60, 0.3);
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3);
 }
 
 .gift_section .row {
@@ -621,20 +621,20 @@ a:focus {
 .gift_section .detail-box .btn-box .btn2 {
   display: inline-block;
   padding: 12px 0;
-  background: linear-gradient(135deg, #ff4500 0%, #dc143c 100%);
+  background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
   color: #ffffff;
   border: none;
   border-radius: 25px;
   -webkit-transition: all .3s;
   transition: all .3s;
-  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
 }
 
 .gift_section .detail-box .btn-box .btn2:hover {
-  background: linear-gradient(135deg, #dc143c 0%, #ff4500 100%);
+  background: linear-gradient(135deg, #44a08d 0%, #4ecdc4 100%);
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4);
+  box-shadow: 0 6px 20px rgba(68, 160, 141, 0.4);
 }
 
 .contact_section {
@@ -695,7 +695,7 @@ a:focus {
 .contact_section button {
   display: inline-block;
   padding: 15px 45px;
-  background: linear-gradient(135deg, #ff4500 0%, #dc143c 100%);
+  background: linear-gradient(135deg, #FF8C00 0%, #DC143C 100%);
   color: #ffffff;
   border: none;
   border-radius: 25px;
@@ -704,11 +704,11 @@ a:focus {
   display: block;
   color: #fff;
   margin: 35px auto 0 auto;
-  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
 }
 
 .contact_section button:hover {
-  background: linear-gradient(135deg, #dc143c 0%, #ff4500 100%);
+  background: linear-gradient(135deg, #DC143C 0%, #FF8C00 100%);
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4);
@@ -748,7 +748,7 @@ a:focus {
 
 .client_section .box .client_info .client_name h5 {
   font-weight: 600;
-  color: #ff4500;
+  color: #FF8C00;
   margin-bottom: 8px;
   font-size: 18px;
   font-family: "Roboto", sans-serif;
@@ -765,7 +765,7 @@ a:focus {
 
 .client_section .box .client_info i {
   font-size: 28px;
-  color: #dc143c;
+  color: #FF8C00;
   margin-top: 5px;
 }
 
@@ -780,7 +780,7 @@ a:focus {
 .client_section .carousel-control-next {
   width: 45px;
   height: 125px;
-  background: linear-gradient(135deg, #ff4500 0%, #dc143c 100%);
+  background: linear-gradient(135deg, #FF8C00 0%, #DC143C 100%);
   opacity: 1;
   font-size: 28px;
   font-weight: bold;
@@ -788,7 +788,7 @@ a:focus {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   border-radius: 5px;
-  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
 }
 
 .client_section .carousel-control-prev {
@@ -827,13 +827,13 @@ a:focus {
   justify-content: center;
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #ff4500 0%, #dc143c 100%);
+  background: linear-gradient(135deg, #FF8C00 0%, #DC143C 100%);
   border-radius: 50%;
   color: #ffffff !important;
   font-size: 20px;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
 }
 
 .info_section .social-link:hover {
@@ -851,7 +851,7 @@ a:focus {
   text-transform: uppercase;
   font-size: 18px;
   margin-bottom: 20px;
-  color: #ff4500;
+  color: #FF8C00;
   position: relative;
   padding-bottom: 10px;
   font-family: "Roboto", sans-serif;
@@ -865,7 +865,7 @@ a:focus {
   left: 0;
   width: 50px;
   height: 3px;
-  background: linear-gradient(90deg, #ff4500, #dc143c);
+  background: linear-gradient(90deg, #FF8C00, #DC143C);
   border-radius: 2px;
 }
 
@@ -899,17 +899,17 @@ a:focus {
 }
 
 .footer-link:hover {
-  color: #ff4500;
+  color: #FF8C00;
   padding-left: 10px;
 }
 
 .footer-link i {
-  color: #dc143c;
+  color: #FF8C00;
   transition: all 0.3s ease;
 }
 
 .footer-link:hover i {
-  color: #ff4500;
+  color: #DC143C;
 }
 
 .newsletter-form {
@@ -931,13 +931,13 @@ a:focus {
 
 .newsletter-input:focus {
   background: rgba(255, 255, 255, 0.15);
-  border-color: #ff4500;
-  box-shadow: 0 0 0 0.2rem rgba(255, 69, 0, 0.25);
+  border-color: #FF8C00;
+  box-shadow: 0 0 0 0.2rem rgba(255, 140, 0, 0.25);
   color: #ffffff;
 }
 
 .newsletter-btn {
-  background: linear-gradient(135deg, #ff4500 0%, #dc143c 100%);
+  background: linear-gradient(135deg, #FF8C00 0%, #DC143C 100%);
   border: none;
   border-radius: 25px;
   padding: 12px 20px;
@@ -948,7 +948,7 @@ a:focus {
 
 .newsletter-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
+  box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
   color: #ffffff;
 }
 
@@ -963,19 +963,19 @@ a:focus {
 }
 
 .contact-link:hover {
-  color: #ff4500;
+  color: #FF8C00;
   padding-left: 10px;
 }
 
 .contact-link i {
-  color: #dc143c;
+  color: #FF8C00;
   font-size: 16px;
   width: 20px;
   transition: all 0.3s ease;
 }
 
 .contact-link:hover i {
-  color: #ff4500;
+  color: #DC143C;
 }
 
 /* end info section */
@@ -1006,7 +1006,7 @@ a:focus {
 }
 
 .footer-policy-link:hover {
-  color: #ff4500;
+  color: #FF8C00;
   text-decoration: none;
 }
 
@@ -1042,11 +1042,11 @@ a:focus {
 }
 
 .contact-subtitle {
-  color: #ff4500;
+  color: #FF8C00;
   font-weight: 600;
   margin-bottom: 20px;
   font-size: 18px;
-  border-bottom: 2px solid #dc143c;
+  border-bottom: 2px solid #DC143C;
   padding-bottom: 8px;
   display: inline-block;
   font-family: "Roboto", sans-serif;
@@ -1066,8 +1066,8 @@ a:focus {
 }
 
 .contact-form .form-control:focus {
-  border-color: #ff4500;
-  box-shadow: 0 0 0 0.2rem rgba(255, 69, 0, 0.25);
+  border-color: #FF8C00;
+  box-shadow: 0 0 0 0.2rem rgba(255, 140, 0, 0.25);
   outline: none;
 }
 
@@ -1077,18 +1077,18 @@ a:focus {
 }
 
 .btn-contact {
-  background: linear-gradient(135deg, #ff4500 0%, #dc143c 100%);
+  background: linear-gradient(135deg, #FF8C00 0%, #DC143C 100%);
   color: #ffffff;
   border: none;
   padding: 12px 30px;
   border-radius: 25px;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
 }
 
 .btn-contact:hover {
-  background: linear-gradient(135deg, #dc143c 0%, #ff4500 100%);
+  background: linear-gradient(135deg, #DC143C 0%, #FF8C00 100%);
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4);
@@ -1113,7 +1113,7 @@ a:focus {
 }
 
 .contact-item i {
-  color: #dc143c;
+  color: #FF8C00;
   font-size: 18px;
   width: 25px;
   margin-right: 15px;
@@ -1139,7 +1139,7 @@ a:focus {
 
 .photo-upload-area {
   position: relative;
-  border: 2px dashed #dc143c;
+  border: 2px dashed #FF8C00;
   border-radius: 10px;
   padding: 20px;
   text-align: center;
@@ -1148,8 +1148,8 @@ a:focus {
 }
 
 .photo-upload-area:hover {
-  border-color: #ff4500;
-  background: #fff5f0;
+  border-color: #DC143C;
+  background: #fff8f0;
 }
 
 .contact-store-image {
@@ -1167,7 +1167,7 @@ a:focus {
 
 .photo-placeholder i {
   font-size: 48px;
-  color: #dc143c;
+  color: #FF8C00;
   margin-bottom: 15px;
 }
 

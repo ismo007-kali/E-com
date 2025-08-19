@@ -10,7 +10,7 @@ require_once 'header.php';
               <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-7">
-                    <img style="width: 200px; height: 100px;" src="images/Fichier 9@4x.png" id="logo">
+                    <img style="width: 200px; height: 100px;" src="images/mt-logo.png" id="logo" alt="MODE ET TENDANCE Logo">
                     <div class="detail-box"> 
                       <h1>Bienvenu chez <br>MODE ET TENDANCE</h1>
                       <p>Découvrez notre collection d'accessoires de mode élégants et durables. Sacs, montres, bracelets et bien plus encore pour sublimer votre style quotidien.</p>
@@ -29,11 +29,11 @@ require_once 'header.php';
               <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-7">
-                     <img style=" width: 200px;height: 100px; " src="images/Fichier 9@4x.png" id="logo"> 
+                     <img style="width: 200px; height: 100px;" src="images/mt-logo.png" id="logo" alt="MODE ET TENDANCE Logo"> 
                     <div class="detail-box">
                       <h1>
                         Bienvenu chez <br>
-                        Blessing Shop
+                        MODE ET TENDANCE
                       </h1>
                       <p>
                         Nous proposons une collection diversifiée d’accessoires de mode à un prix adorable, ce qui vous permet d’améliorer plus facilement votre style sans vous ruiner.
@@ -58,11 +58,11 @@ require_once 'header.php';
               <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-7">
-                     <img style=" width: 200px;height: 100px; " src="images/Fichier 9@4x.png" id="logo"> 
+                     <img style="width: 200px; height: 100px;" src="images/mt-logo.png" id="logo" alt="MODE ET TENDANCE Logo"> 
                     <div class="detail-box">
                       <h1>
                         Bienvenu chez <br>
-                        Blessing Shop
+                        MODE ET TENDANCE
                       </h1>
                       <p>
                         Chez MODE ET TENDANCE, nous sommes passionnés par la fourniture d’accessoires de mode de haute qualité qui complète vitre style et votre personnalité. Notre collection propose une large gamme de sacs, montres, bracelets et bien plus encore, tous conçus pour ajouter une touches d’élégance etde sophistication à votre look de tous les jours.
