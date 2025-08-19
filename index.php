@@ -10,7 +10,7 @@ require_once 'header.php';
               <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-7">
-                    <img style="width: 200px; height: 100px;" src="images/mt-logo.png" id="logo" alt="MODE ET TENDANCE Logo">
+                    <img style="width: 120px; height: 120px;" src="images/logo/logo.png" id="logo" alt="MODE ET TENDANCE Logo">
                     <div class="detail-box"> 
                       <h1>Bienvenu chez <br>MODE ET TENDANCE</h1>
                       <p>Découvrez notre collection d'accessoires de mode élégants et durables. Sacs, montres, bracelets et bien plus encore pour sublimer votre style quotidien.</p>
@@ -29,7 +29,7 @@ require_once 'header.php';
               <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-7">
-                     <img style="width: 200px; height: 100px;" src="images/mt-logo.png" id="logo" alt="MODE ET TENDANCE Logo"> 
+                     <img style="width: 120px; height: 120px;" src="images/logo/logo.png" id="logo" alt="MODE ET TENDANCE Logo"> 
                     <div class="detail-box">
                       <h1>
                         Bienvenu chez <br>
@@ -58,7 +58,7 @@ require_once 'header.php';
               <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-7">
-                     <img style="width: 200px; height: 100px;" src="images/mt-logo.png" id="logo" alt="MODE ET TENDANCE Logo"> 
+                     <img style="width: 120px; height: 120px;" src="images/logo/logo.png" id="logo" alt="MODE ET TENDANCE Logo"> 
                     <div class="detail-box">
                       <h1>
                         Bienvenu chez <br>
