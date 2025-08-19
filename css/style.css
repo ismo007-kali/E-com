@@ -1,9 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap");
 @import url("font-awesome.min.css");
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: "poppins", sans-serif;
-  color: #050404;
+  font-family: "Roboto", "Open Sans", sans-serif;
+  color: #2c3e50;
   background-color: #ffffff;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 .layout_padding {
@@ -44,7 +54,9 @@ body {
 
 .heading_container h2 {
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1px;
 }
 
 .heading_container h2 span {
@@ -89,7 +101,9 @@ body {
 }
 
 #navbarSupportedContent.innerpage_navbar .nav-item.active .nav-link {
-  background-color: #ff4500;
+  background: #ffffff;
+  color: #333333;
+  font-weight: 600;
 }
 
 #navbarSupportedContent .navbar-nav .nav-link {
@@ -101,7 +115,9 @@ body {
 }
 
 #navbarSupportedContent .nav-item.active .nav-link {
-  background: linear-gradient(135deg, #ff4500 0%, #dc143c 100%);
+  background: #ffffff;
+  color: #333333;
+  font-weight: 600;
 }
 
 a,
@@ -129,11 +145,13 @@ a:focus {
 
 .navbar-brand span {
   font-size: 28px;
-  font-weight: bold;
+  font-weight: 700;
   color: #000000;
   text-transform: uppercase;
   margin: 0;
   padding: 0;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 2px;
 }
 
 .custom_nav-container .nav_search-btn {
@@ -271,11 +289,14 @@ a:focus {
 }
 
 .slider_section .detail-box h1 {
-  font-weight: bold;
+  font-weight: 700;
   font-size: 3.5rem;
   margin-bottom: 10px;
   color: #ff4500;
   text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1.5px;
+  line-height: 1.2;
 }
 
 .slider_section .detail-box a {
@@ -290,6 +311,9 @@ a:focus {
   margin-top: 25px;
   text-transform: uppercase;
   box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .slider_section .detail-box a:hover {
@@ -727,6 +751,8 @@ a:focus {
   color: #ff4500;
   margin-bottom: 8px;
   font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .client_section .box .client_info .client_name h6 {
@@ -821,13 +847,15 @@ a:focus {
 }
 
 .footer-title {
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
   font-size: 18px;
   margin-bottom: 20px;
   color: #ff4500;
   position: relative;
   padding-bottom: 10px;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1px;
 }
 
 .footer-title::after {
@@ -1021,6 +1049,8 @@ a:focus {
   border-bottom: 2px solid #dc143c;
   padding-bottom: 8px;
   display: inline-block;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .contact-form .form-group {
