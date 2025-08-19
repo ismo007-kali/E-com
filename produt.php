@@ -1852,21 +1852,18 @@ require_once 'header.php';
         </div>
       </div>
     </div>
-  </section>
-    </footer>
-    <!-- footer section -->
+</section>
+  <!-- footer section -->
 
-  </section>
-
-  <!-- end info section -->
+<!-- end info section -->
 
 
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
-  <script src="js/custom.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+</script>
+<script src="js/custom.js"></script>
 
-</body>
-
-</html>
+<?php
+require_once 'footer.php';
+?>

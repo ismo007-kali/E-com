@@ -104,13 +104,9 @@ require_once 'header.php';
         </div>
       </div>
     </section>
-
     <!-- end slider section -->
-  </div>
-  <!-- end hero area -->
-
+     
   <!-- why section -->
-
   <section class="why_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
@@ -388,9 +384,9 @@ require_once 'header.php';
               Nous avons une large gamme de maquillage de qualité supérieure pour tous les goûts. Nos produits sont durables et faciles à appliquer. Nous avons des produits pour tous les types de peau et pour toutes les couleures de peau.
               </p>
               <div class="btn-box">
-          <!--       <a href="#" class="btn1">
+          <a href="#" class="btn1">
                   ACHETER
-                </a> -->
+                </a>
                 <a href="produt.html" class="btn2">
                   PLUS
                 </a>
@@ -478,10 +474,6 @@ require_once 'header.php';
         </div>
       </div>
     </div>
-  </section>
-    </footer>
-    
-
   </section>
 
   <!-- end info section -->

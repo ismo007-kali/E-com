@@ -1,3 +1,6 @@
+<?php
+// header.php
+?>
 <!DOCTYPE html>
 <html>
 
@@ -8,11 +11,13 @@
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
   <title>MODE ET TENDANCE</title>
+  
+  <!-- Font Awesome stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
@@ -27,7 +32,7 @@
 </head>
 
 <body>
-  <div class="hero_area">
+  <div class="hero_area" style="background: #ffffff;">
     <!-- header section strats -->
     <header class="header_section">
       <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -39,10 +44,10 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav  ">
-            <li class="nav-item active">
+            <li class="nav-item <?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>">
               <a class="nav-link" href="index.php"><strong>ACCUEIL</strong> <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <?php echo (basename($_SERVER['PHP_SELF']) == 'shop.php') ? 'active' : ''; ?>">
               <a class="nav-link" href="shop.php">
                 <strong>Shop</strong>
               </a>
@@ -52,24 +57,24 @@
                <strong>POURQUOI NOUS</strong>
               </a>
             </li> -->
-            <li class="nav-item">
+            <li class="nav-item <?php echo (basename($_SERVER['PHP_SELF']) == 'testimonial.php') ? 'active' : ''; ?>">
               <a class="nav-link" href="testimonial.php">
                 <strong>TEMOIGNAGE</strong>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <?php echo (basename($_SERVER['PHP_SELF']) == 'contact.php') ? 'active' : ''; ?>">
               <a class="nav-link" href="contact.php"><strong>CONTACT</strong></a>
             </li>
           </ul>
           <div class="user_option">
             <a href="">
-              <i class="fa fa-upser" aria-hidden="true"></i>
+              <i class="fa fa-user" aria-hidden="true"></i>
               <span>
                 
               </span>
             </a>
             <a href="">
-              <i class="fa fa-shoppiong-bag" aria-hidden="true"></i>
+              <i class="fa fa-shopping-bag" aria-hidden="true"></i>
             </a>
            <!--  <form class="form-inline ">
               <button class="btn nav_search-btn" type="submit">
