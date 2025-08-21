@@ -28,6 +28,8 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+  <!-- Dark mode styles -->
+  <link href="css/dark-mode.css" rel="stylesheet" />
   
 </head>
 

@@ -24,7 +24,7 @@ require_once 'header.php';
                   </div>
                 </div>
               </div>
-            </div>
+            </div>  
             <div class="carousel-item ">
               <div class="container-fluid">
                 <div class="row">
@@ -38,8 +38,6 @@ require_once 'header.php';
                       <p>
                         Nous proposons une collection diversifiée d’accessoires de mode à un prix adorable, ce qui vous permet d’améliorer plus facilement votre style sans vous ruiner.
                         Notre collection propose une gamme d’accessoires de mode uniques et élégants. Parfait pour ajouter une touche d’élégance et de sophistication à votre look de tous les jours.
- 
-
                       </p>
                       <a href="contact.html">
                         Contactez nous

@@ -1,0 +1,325 @@
+/* Mode Sombre - MODE ET TENDANCE */
+
+/* Variables CSS pour faciliter la maintenance */
+:root {
+  /* Couleurs mode clair */
+  --primary-orange: #FF8C00;
+  --primary-red: #DC143C;
+  --bg-light: #ffffff;
+  --text-light: #2c3e50;
+  --card-bg-light: #f8f9fa;
+  --border-light: #e9ecef;
+  
+  /* Couleurs mode sombre */
+  --bg-dark: #1a1a1a;
+  --bg-dark-secondary: #2d2d2d;
+  --text-dark: #e0e0e0;
+  --card-bg-dark: #333333;
+  --border-dark: #444444;
+  --gradient-dark: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+}
+
+/* Bouton de basculement mode nuit/jour */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-red) 100%);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Indicateur de raccourci clavier */
+.theme-shortcut {
+  position: fixed;
+  top: 75px;
+  right: 15px;
+  z-index: 9998;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-family: monospace;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.theme-shortcut:hover,
+.theme-toggle:hover + .theme-shortcut {
+  opacity: 0.9;
+}
+
+body.dark-mode .theme-shortcut {
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4);
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
+}
+
+/* Icônes pour le bouton */
+.theme-toggle .sun-icon,
+.theme-toggle .moon-icon {
+  transition: all 0.3s ease;
+}
+
+.theme-toggle .sun-icon {
+  display: block;
+}
+
+.theme-toggle .moon-icon {
+  display: none;
+}
+
+/* Mode sombre activé */
+body.dark-mode {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .theme-toggle .sun-icon {
+  display: none;
+}
+
+body.dark-mode .theme-toggle .moon-icon {
+  display: block;
+}
+
+/* Header en mode sombre */
+body.dark-mode .hero_area {
+  background: var(--gradient-dark) !important;
+}
+
+body.dark-mode .navbar-brand span {
+  color: var(--text-dark);
+}
+
+body.dark-mode .user_option a {
+  color: var(--text-dark);
+}
+
+body.dark-mode .custom_nav-container .navbar-toggler span,
+body.dark-mode .custom_nav-container .navbar-toggler span::before,
+body.dark-mode .custom_nav-container .navbar-toggler span::after {
+  background-color: var(--text-dark);
+}
+
+/* Slider section en mode sombre */
+body.dark-mode .slider_section .slider_container {
+  background: var(--gradient-dark);
+  color: var(--text-dark);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .slider_section .detail-box h1 {
+  color: var(--primary-orange);
+}
+
+body.dark-mode .slider_section .carousel_btn-box {
+  background-color: var(--card-bg-dark);
+}
+
+body.dark-mode .slider_section .carousel_btn-box .carousel-control-prev,
+body.dark-mode .slider_section .carousel_btn-box .carousel-control-next {
+  color: var(--text-dark);
+}
+
+/* Sections générales en mode sombre */
+body.dark-mode .why_section .box {
+  background-color: var(--card-bg-dark);
+  color: var(--text-dark);
+}
+
+body.dark-mode .why_section .box .img-box i {
+  color: var(--primary-orange);
+}
+
+body.dark-mode .shop_section .box {
+  background-color: var(--card-bg-dark);
+  color: var(--text-dark);
+}
+
+body.dark-mode .shop_section .box a {
+  color: var(--text-dark);
+}
+
+body.dark-mode .shop_section .box .new {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+/* Client section en mode sombre */
+body.dark-mode .client_section .box {
+  background-color: var(--card-bg-dark);
+  color: var(--text-dark);
+  box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .client_section .box .client_info .client_name h5 {
+  color: var(--primary-orange);
+}
+
+body.dark-mode .client_section .box .client_info .client_name h6 {
+  color: #999;
+}
+
+body.dark-mode .client_section .box .client_info i {
+  color: var(--primary-orange);
+}
+
+body.dark-mode .client_section .box p {
+  color: #ccc;
+}
+
+/* Contact section en mode sombre */
+body.dark-mode .contact_section input {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark);
+  color: var(--text-dark);
+}
+
+body.dark-mode .contact_section input::placeholder {
+  color: #999;
+}
+
+body.dark-mode .contact-form-container {
+  background: var(--card-bg-dark);
+  color: var(--text-dark);
+}
+
+body.dark-mode .contact-info {
+  background: var(--card-bg-dark);
+  border-color: var(--border-dark);
+  color: var(--text-dark);
+}
+
+body.dark-mode .contact-item span {
+  color: var(--text-dark);
+}
+
+body.dark-mode .contact-photo-section {
+  background: var(--card-bg-dark);
+}
+
+body.dark-mode .photo-upload-area {
+  background: var(--bg-dark);
+  border-color: var(--primary-orange);
+}
+
+body.dark-mode .photo-upload-area:hover {
+  background: var(--card-bg-dark);
+}
+
+body.dark-mode .photo-placeholder {
+  color: var(--text-dark);
+}
+
+body.dark-mode .map-section {
+  background: var(--card-bg-dark);
+}
+
+/* Headings en mode sombre */
+body.dark-mode .heading_container h2 {
+  color: var(--text-dark);
+}
+
+body.dark-mode h2 {
+  color: var(--text-dark);
+}
+
+body.dark-mode .contact-subtitle {
+  color: var(--primary-orange);
+}
+
+body.dark-mode .footer-title {
+  color: var(--primary-orange);
+}
+
+/* Wrapper et autres éléments */
+body.dark-mode .wrapper {
+  background: var(--card-bg-dark);
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 5px 15px;
+}
+
+body.dark-mode .box {
+  background-color: var(--card-bg-dark);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+/* Transitions fluides */
+body, .hero_area, .slider_section .slider_container, .why_section .box, 
+.shop_section .box, .client_section .box, .contact-form-container, 
+.contact-info, .wrapper, .box {
+  transition: all 0.3s ease;
+}
+
+/* Responsive pour le bouton de basculement */
+@media (max-width: 768px) {
+  .theme-toggle {
+    position: fixed !important;
+    top: 15px !important;
+    right: 70px !important; /* Décalé vers la gauche pour éviter le conflit avec le menu hamburger */
+    bottom: auto !important;
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+  
+  .theme-shortcut {
+    top: 65px !important;
+    right: 65px !important;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 576px) {
+  .theme-toggle {
+    position: fixed !important;
+    top: 12px !important;
+    right: 65px !important;
+    bottom: auto !important;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .theme-shortcut {
+    display: none !important; /* Masquer sur très petits écrans */
+  }
+}
+
+/* Ajustement quand le menu est ouvert */
+.navbar-toggler[aria-expanded="true"] ~ .theme-toggle {
+  opacity: 0.8;
+}
+
+/* Animation pour le changement de thème */
+@keyframes themeTransition {
+  0% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+body.dark-mode {
+  animation: themeTransition 0.3s ease;
+}

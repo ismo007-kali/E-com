@@ -25,7 +25,7 @@
                 Chez MODE ET TENDANCE, nous vous proposons une large gamme de sacs, montres, bracelets artisanaux et produits de beauté, conçus pour ajouter une touche d'élégance à votre look quotidien.
               </p>
               <div class="info_logo mt-3">
-                <img src="images/Fichier 9@4x.png" alt="MODE ET TENDANCE" class="img-fluid footer-logo">
+                <img src="images/logo/logo.png" alt="MODE ET TENDANCE" class="img-fluid footer-logo">
               </div>
             </div>
           </div>
@@ -50,9 +50,9 @@
               <h6 class="footer-title">NEWSLETTER</h6>
               <p class="footer-text">Abonnez-vous à notre newsletter pour recevoir les dernières nouveautés et offres spéciales.</p>
               <div class="info_form mt-3">
-                <form class="newsletter-form d-flex">
+                <form class="newsletter-form d-flex flex-column flex-sm-row">
                   <input type="email" class="form-control newsletter-input" placeholder="Votre email" required>
-                  <button type="submit" class="btn newsletter-btn ms-2">
+                  <button type="submit" class="btn newsletter-btn ms-sm-2 mt-2 mt-sm-0">
                     <i class="fa fa-paper-plane"></i>
                   </button>
                 </form>
@@ -114,6 +114,24 @@
 <script src="js/bootstrap.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="js/custom.js"></script>
+
+<!-- Dark Mode JavaScript -->
+<script src="js/dark-mode.js"></script>
+<script>
+// Test immédiat du mode nuit
+console.log('Test du mode nuit - Script inline');
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM prêt pour le mode nuit');
+    setTimeout(function() {
+        const button = document.querySelector('.theme-toggle');
+        if (button) {
+            console.log('Bouton mode nuit trouvé:', button);
+        } else {
+            console.error('Bouton mode nuit non trouvé');
+        }
+    }, 1000);
+});
+</script>
 
 <!-- Display current year -->
 <script>
