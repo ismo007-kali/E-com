@@ -14,14 +14,20 @@ class ThemeManager {
             // Créer le bouton de basculement
             this.createToggleButton();
             
+            // Vérifier l'heure système pour le mode automatique
+            this.checkTimeBasedTheme();
+            
             // Charger le thème sauvegardé
             this.loadSavedTheme();
             
             // Écouter les événements
             this.bindEvents();
             
-            // Détecter la préférence système
+            // Détecter la préférence système (pour le mode automatique)
             this.detectSystemPreference();
+            
+            // Planifier la vérification périodique de l'heure
+            this.scheduleTimeCheck();
             
             console.log('ThemeManager initialisé avec succès');
         } catch (error) {
@@ -223,38 +229,37 @@ class ThemeManager {
 
     saveTheme(theme) {
         try {
-            localStorage.setItem('mode-et-tendance-theme', theme);
-            localStorage.setItem('mode-et-tendance-theme-timestamp', Date.now().toString());
+            localStorage.setItem('theme', theme);
+            localStorage.setItem('themeTimestamp', Date.now());
+            // Si l'utilisateur change manuellement de thème, désactiver le mode automatique
+            localStorage.setItem('themeAutoMode', 'false');
         } catch (error) {
             console.warn('Impossible de sauvegarder le thème:', error);
         }
     }
 
     loadSavedTheme() {
-        try {
-            const savedTheme = localStorage.getItem('mode-et-tendance-theme');
-            const timestamp = localStorage.getItem('mode-et-tendance-theme-timestamp');
-            
-            // Vérifier si la préférence n'est pas trop ancienne (30 jours)
-            if (timestamp) {
-                const thirtyDaysAgo = Date.now() - (30 * 24 * 60 * 60 * 1000);
-                if (parseInt(timestamp) < thirtyDaysAgo) {
-                    this.clearSavedTheme();
-                    return;
-                }
-            }
-            
-            if (savedTheme && (savedTheme === 'dark' || savedTheme === 'light')) {
-                this.setTheme(savedTheme);
-            }
-        } catch (error) {
-            console.warn('Impossible de charger le thème sauvegardé:', error);
+        // Ne pas charger le thème sauvegardé si le mode automatique est activé
+        if (this.isAutoModeEnabled()) {
+            this.checkTimeBasedTheme();
+            return;
+        }
+        
+        const savedTheme = localStorage.getItem('theme');
+        const savedTime = localStorage.getItem('themeTimestamp');
+        const oneMonth = 30 * 24 * 60 * 60 * 1000; // 30 jours en millisecondes
+
+        if (savedTheme && savedTime && (Date.now() - parseInt(savedTime) < oneMonth)) {
+            this.setTheme(savedTheme);
+        } else {
+            // Si le thème est expiré ou inexistant, utiliser la préférence système
+            this.detectSystemPreference();
         }
     }
 
     hasUserPreference() {
         try {
-            return localStorage.getItem('mode-et-tendance-theme') !== null;
+            return localStorage.getItem('theme') !== null;
         } catch (error) {
             return false;
         }
@@ -262,19 +267,21 @@ class ThemeManager {
 
     clearSavedTheme() {
         try {
-            localStorage.removeItem('mode-et-tendance-theme');
-            localStorage.removeItem('mode-et-tendance-theme-timestamp');
+            localStorage.removeItem('theme');
+            localStorage.removeItem('themeTimestamp');
         } catch (error) {
             console.warn('Impossible de supprimer le thème sauvegardé:', error);
         }
     }
 
     detectSystemPreference() {
-        // Si l'utilisateur n'a pas de préférence sauvegardée, utiliser celle du système
-        if (!this.hasUserPreference() && window.matchMedia) {
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (prefersDark) {
+        // Si le mode automatique n'est pas encore défini, utiliser la préférence système
+        if (localStorage.getItem('themeAutoMode') === null) {
+            localStorage.setItem('themeAutoMode', 'true');
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 this.setTheme('dark');
+            } else {
+                this.setTheme('light');
             }
         }
     }
@@ -313,6 +320,70 @@ class ThemeManager {
         }
         return 'light';
     }
+
+    isAutoModeEnabled() {
+        return localStorage.getItem('themeAutoMode') === 'true';
+    }
+
+    // Activer/désactiver le mode automatique
+    setAutoMode(enabled) {
+        if (enabled) {
+            localStorage.setItem('themeAutoMode', 'true');
+            this.checkTimeBasedTheme();
+        } else {
+            localStorage.setItem('themeAutoMode', 'false');
+        }
+    }
+
+    // Vérifier l'heure et appliquer le thème approprié
+    checkTimeBasedTheme() {
+        const hours = new Date().getHours();
+        // Mode nuit entre 19h et 7h (19h00 - 6h59)
+        const isNightTime = hours >= 19 || hours < 7;
+        
+        if (this.isAutoModeEnabled()) {
+            this.setTheme(isNightTime ? 'dark' : 'light');
+        }
+        
+        return isNightTime;
+    }
+
+    // Planifier la vérification périodique de l'heure
+    scheduleTimeCheck() {
+        // Vérifier toutes les minutes si en mode automatique
+        setInterval(() => {
+            if (this.isAutoModeEnabled()) {
+                this.checkTimeBasedTheme();
+            }
+        }, 60000); // 60 secondes
+        
+        // Vérifier également au changement de jour
+        const now = new Date();
+        const nightStart = new Date(
+            now.getFullYear(),
+            now.getMonth(),
+            now.getDate(),
+            19, 0, 0 // 19h00
+        );
+        
+        const dayStart = new Date(
+            now.getFullYear(),
+            now.getMonth(),
+            now.getDate(),
+            7, 0, 0 // 7h00
+        );
+        
+        // Si on est déjà dans la plage de nuit
+        if (now.getHours() >= 19 || now.getHours() < 7) {
+            // Prochaine vérification à 7h du matin
+            const timeUntilDay = dayStart.getTime() + (24 * 60 * 60 * 1000) - now.getTime();
+            setTimeout(() => this.checkTimeBasedTheme(), timeUntilDay);
+        } else {
+            // Prochaine vérification à 19h
+            const timeUntilNight = nightStart.getTime() - now.getTime();
+            setTimeout(() => this.checkTimeBasedTheme(), timeUntilNight);
+        }
+    }
 }
 
 // Initialisation automatique quand le DOM est prêt
@@ -322,10 +393,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Ajouter des méthodes globales pour faciliter l'utilisation
     window.toggleTheme = () => window.themeManager.toggleTheme();
-    window.setTheme = (theme) => ThemeManager.setTheme(theme);
-    window.getCurrentTheme = () => ThemeManager.getCurrentTheme();
+    window.setTheme = (theme) => window.themeManager.setTheme(theme);
+    window.getCurrentTheme = () => window.themeManager.getCurrentTheme();
+    window.setAutoThemeMode = (enabled) => window.themeManager.setAutoMode(enabled);
+    window.isAutoThemeMode = () => window.themeManager.isAutoModeEnabled();
     
-    console.log('🌙 Système de mode nuit/jour initialisé pour MODE ET TENDANCE');
+    // Vérifier l'heure immédiatement après le chargement
+    if (window.themeManager.isAutoModeEnabled()) {
+        window.themeManager.checkTimeBasedTheme();
+    }
 });
 
 // Gestion des erreurs globales

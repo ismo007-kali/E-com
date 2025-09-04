@@ -21,10 +21,10 @@
 
 /* Bouton de basculement mode nuit/jour */
 .theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 9999;
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 2147483647 !important; /* Valeur maximale pour z-index */
   background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-red) 100%);
   border: none;
   border-radius: 50%;
@@ -42,10 +42,10 @@
 
 /* Indicateur de raccourci clavier */
 .theme-shortcut {
-  position: fixed;
-  top: 75px;
-  right: 15px;
-  z-index: 9998;
+  position: fixed !important;
+  top: 75px !important;
+  right: 15px !important;
+  z-index: 2147483646 !important; /* Juste en dessous du bouton */
   background: rgba(0, 0, 0, 0.7);
   color: white;
   font-size: 10px;
