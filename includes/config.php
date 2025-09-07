@@ -24,10 +24,14 @@ define('DB_PASS', '');
 define('DB_NAME', 'ecom_mode_et_tendance');
 define('DB_CHARSET', 'utf8mb4');
 
-// URL de base du site (sans barre oblique finale)
-$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
-$base_url = $protocol . $_SERVER['HTTP_HOST'] . str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
-define('BASE_URL', rtrim($base_url, '/'));
+// URL de base du site. À ajuster si le nom du dossier ou le domaine change.
+define('BASE_URL', 'http://localhost/E-com');
+
+// Chemin de base pour les liens (basé sur le répertoire du projet)
+$base_dir = str_replace('\\', '/', dirname(dirname(__FILE__)));
+$doc_root = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']);
+$base_path = trim(str_replace($doc_root, '', $base_dir), '/');
+define('BASE_PATH', '/' . $base_path . '/');
 
 // Répertoires de l'application
 define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
@@ -47,6 +51,15 @@ define('SITE_EMAIL', 'contact@modetetendance.com');
 define('ADMIN_EMAIL', 'admin@modetetendance.com');
 define('DEFAULT_LANGUAGE', 'fr');
 
+// Configuration des sessions
+define('SESSION_NAME', 'ecom_session');
+define('SESSION_LIFETIME', 86400 * 30); // 30 jours
+define('SESSION_PATH', '/');
+define('SESSION_DOMAIN', ''); // Mettre votre domaine si nécessaire
+define('SESSION_SECURE', isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on');
+define('SESSION_HTTP_ONLY', true);
+define('SESSION_SAME_SITE', 'Lax');
+
 // Paramètres de sécurité
 define('HASH_KEY', bin2hex(random_bytes(32)));
 define('CSRF_TOKEN_NAME', 'csrf_token');
@@ -57,13 +70,6 @@ define('COOKIE_PREFIX', 'ecom_');
 define('COOKIE_EXPIRE', time() + (86400 * 30)); // 30 jours
 define('COOKIE_PATH', '/');
 define('COOKIE_DOMAIN', $_SERVER['HTTP_HOST']);
-
-// Configuration des sessions
-define('SESSION_NAME', 'ecom_session');
-define('SESSION_LIFETIME', 86400); // 24 heures
-define('SESSION_HTTP_ONLY', true);
-define('SESSION_SECURE', isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on');
-define('SESSION_SAME_SITE', 'Lax');
 
 // Configuration des mots de passe
 define('PASSWORD_ALGO', PASSWORD_BCRYPT);

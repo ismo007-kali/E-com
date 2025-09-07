@@ -1,4 +1,4 @@
-<?php require_once 'header.php'; ?>
+<?php require_once __DIR__ . '/../includes/layout/header.php'; ?>
 
 <!-- Boutique Section -->
 <section class="shop_section layout_padding" id="NSP">
@@ -38,9 +38,9 @@
       <?php endforeach; ?>
     </div>
     <div class="btn-box">
-      <a href="produt.php">Voir tous les produits</a>
+      <a href="product.php">Voir tous les produits</a>
     </div>
   </div>
 </section>
 
-<?php require_once 'footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/layout/footer.php'; ?>

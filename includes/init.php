@@ -79,8 +79,33 @@ function sanitize($data) {
     return htmlspecialchars(trim($data), ENT_QUOTES, 'UTF-8');
 }
 
+/**
+ * Redirige vers une URL
+ * 
+ * @param string $path Chemin relatif ou absolu
+ */
 function redirect($path = '/') {
-    header('Location: ' . BASE_URL . ltrim($path, '/'));
+    // Si le chemin est vide, on redirige vers la racine
+    if (empty($path)) {
+        $path = '/';
+    }
+    
+    // Si le chemin est déjà une URL complète, on l'utilise directement
+    if (strpos($path, 'http://') === 0 || strpos($path, 'https://') === 0) {
+        header('Location: ' . $path);
+        exit();
+    }
+    
+    // Suppression des éventuels doublons de slash
+    $path = '/' . ltrim($path, '/');
+    
+    // Construction de l'URL complète
+    $url = rtrim(BASE_URL, '/') . $path;
+    
+    // Nettoyage des éventuels doubles slashes
+    $url = preg_replace('/([^:])\/\//', '$1/', $url);
+    
+    header('Location: ' . $url);
     exit();
 }
 
@@ -286,8 +311,43 @@ function view($name, $data = []) {
 }
 
 // Fonction pour inclure une mise en page avec du contenu
-function layout($name, $data = []) {
-    $content = view($name, $data);
-    include __DIR__ . '/../views/layouts/main.php';
+function layout($name, $data = [])
+{
+    $file = VIEWS_PATH . 'layouts/' . $name . '.php';
+    extract($data);
+    require $file;
 }
+
+/**
+ * Vérifie si un utilisateur est connecté
+ * 
+ * @return bool True si un utilisateur est connecté, false sinon
+ */
+function is_logged_in()
+{
+    // S'assurer que la session est démarrée
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    
+    // Vérifier si l'ID utilisateur est défini dans la session
+    return isset($_SESSION['user_id']) && !empty($_SESSION['user_id']);
+}
+
+/**
+ * Vérifie si l'utilisateur connecté est un administrateur
+ * 
+ * @return bool True si l'utilisateur est administrateur, false sinon
+ */
+function is_admin()
+{
+    // S'assurer que la session est démarrée
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    
+    // Vérifier si l'utilisateur est connecté et est administrateur
+    return is_logged_in() && isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
+}
+
 ?>

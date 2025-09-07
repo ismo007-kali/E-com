@@ -25,7 +25,7 @@
                 Chez MODE ET TENDANCE, nous vous proposons une large gamme de sacs, montres, bracelets artisanaux et produits de beauté, conçus pour ajouter une touche d'élégance à votre look quotidien.
               </p>
               <div class="info_logo mt-3">
-                <img src="images/logo/logo.png" alt="MODE ET TENDANCE" class="img-fluid footer-logo">
+                <img src="<?= BASE_URL ?>/images/logo/logo.png" alt="MODE ET TENDANCE" class="img-fluid footer-logo">
               </div>
             </div>
           </div>
@@ -35,11 +35,11 @@
               <h6 class="footer-title">LIENS RAPIDES</h6>
               <div class="info_links">
                 <ul class="list-unstyled footer-links">
-                  <li><a href="index.php" class="footer-link"><i class="fa fa-angle-right me-2"></i> Accueil</a></li>
-                  <li><a href="shop.php" class="footer-link"><i class="fa fa-angle-right me-2"></i> Boutique</a></li>
-                  <li><a href="produt.php" class="footer-link"><i class="fa fa-angle-right me-2"></i> Produits</a></li>
-                  <li><a href="testimonial.php" class="footer-link"><i class="fa fa-angle-right me-2"></i> Témoignages</a></li>
-                  <li><a href="contact.php" class="footer-link"><i class="fa fa-angle-right me-2"></i> Contact</a></li>
+                  <li><a href="<?= BASE_URL ?>" class="footer-link"><i class="fa fa-angle-right me-2"></i> Accueil</a></li>
+                  <li><a href="<?= BASE_URL ?>/pages/shop.php" class="footer-link"><i class="fa fa-angle-right me-2"></i> Boutique</a></li>
+                  <li><a href="<?= BASE_URL ?>/pages/shop.php" class="footer-link"><i class="fa fa-angle-right me-2"></i> Produits</a></li>
+                  <li><a href="<?= BASE_URL ?>/pages/testimonial.php" class="footer-link"><i class="fa fa-angle-right me-2"></i> Témoignages</a></li>
+                  <li><a href="<?= BASE_URL ?>/pages/contact.php" class="footer-link"><i class="fa fa-angle-right me-2"></i> Contact</a></li>
                 </ul>
               </div>
             </div>
@@ -110,13 +110,13 @@
 </footer>
 
 <!-- jQuery and Bootstrap JS -->
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/bootstrap.js"></script>
+<script src="<?= BASE_URL ?>/js/jquery-3.4.1.min.js"></script>
+<script src="<?= BASE_URL ?>/js/bootstrap.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<script src="js/custom.js"></script>
+<script src="<?= BASE_URL ?>/js/custom.js"></script>
 
 <!-- Dark Mode JavaScript -->
-<script src="js/dark-mode.js"></script>
+<script src="<?= BASE_URL ?>/js/dark-mode.js"></script>
 <script>
 // Test immédiat du mode nuit
 console.log('Test du mode nuit - Script inline');

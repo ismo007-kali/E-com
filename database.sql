@@ -1,8 +1,17 @@
+-- =============================================
+-- Schéma complet MODE ET TENDANCE (réorganisé)
+-- Importer ce fichier sur une base vide
+-- =============================================
+
 -- Création de la base de données
 CREATE DATABASE IF NOT EXISTS ecom_mode_et_tendance CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE ecom_mode_et_tendance;
 
--- Table des utilisateurs
+-- =============================================
+-- Table: users (utilisateurs)
+-- - Contient les informations clients et administrateurs
+-- - Champs de suivi de dernière connexion inclus (last_login, last_login_ip)
+-- =============================================
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
@@ -16,11 +25,16 @@ CREATE TABLE IF NOT EXISTS users (
     country VARCHAR(100),
     is_admin BOOLEAN DEFAULT FALSE,
     is_active BOOLEAN DEFAULT TRUE,
+    last_login DATETIME NULL,
+    last_login_ip VARCHAR(45) NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Table des catégories
+-- =============================================
+-- Table: categories (catégories produits)
+-- - Support de hiérarchie via parent_id
+-- =============================================
 CREATE TABLE IF NOT EXISTS categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -30,10 +44,12 @@ CREATE TABLE IF NOT EXISTS categories (
     image VARCHAR(255),
     is_active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (parent_id) REFERENCES categories(id) ON DELETE SET NULL
+    CONSTRAINT fk_categories_parent FOREIGN KEY (parent_id) REFERENCES categories(id) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Table des produits
+-- =============================================
+-- Table: products (produits)
+-- =============================================
 CREATE TABLE IF NOT EXISTS products (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -50,10 +66,12 @@ CREATE TABLE IF NOT EXISTS products (
     is_active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
+    CONSTRAINT fk_products_category FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Table des images des produits
+-- =============================================
+-- Table: product_images (images produits)
+-- =============================================
 CREATE TABLE IF NOT EXISTS product_images (
     id INT AUTO_INCREMENT PRIMARY KEY,
     product_id INT NOT NULL,
@@ -61,10 +79,13 @@ CREATE TABLE IF NOT EXISTS product_images (
     is_primary BOOLEAN DEFAULT FALSE,
     sort_order INT DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+    CONSTRAINT fk_product_images_product FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Table des avis sur les produits
+-- =============================================
+-- Table: product_reviews (avis produits)
+-- - rating 1..5
+-- =============================================
 CREATE TABLE IF NOT EXISTS product_reviews (
     id INT AUTO_INCREMENT PRIMARY KEY,
     product_id INT NOT NULL,
@@ -73,11 +94,15 @@ CREATE TABLE IF NOT EXISTS product_reviews (
     comment TEXT,
     is_approved BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    CONSTRAINT fk_product_reviews_product FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
+    CONSTRAINT fk_product_reviews_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Table des commandes
+-- =============================================
+-- Table: orders (commandes)
+-- - Statuts: en_attente, traitement, expedie, livre, annule, rembourse
+-- - order_date inclus (affichage côté compte utilisateur)
+-- =============================================
 CREATE TABLE IF NOT EXISTS orders (
     id INT AUTO_INCREMENT PRIMARY KEY,
     order_number VARCHAR(50) NOT NULL UNIQUE,
@@ -92,12 +117,15 @@ CREATE TABLE IF NOT EXISTS orders (
     shipping_address TEXT,
     billing_address TEXT,
     notes TEXT,
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+    CONSTRAINT fk_orders_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Table des articles de commande
+-- =============================================
+-- Table: order_items (lignes de commande)
+-- =============================================
 CREATE TABLE IF NOT EXISTS order_items (
     id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT NOT NULL,
@@ -107,11 +135,13 @@ CREATE TABLE IF NOT EXISTS order_items (
     quantity INT NOT NULL,
     total_price DECIMAL(10, 2) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
-    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE SET NULL
+    CONSTRAINT fk_order_items_order FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+    CONSTRAINT fk_order_items_product FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Table des réductions
+-- =============================================
+-- Table: discounts (réductions / coupons)
+-- =============================================
 CREATE TABLE IF NOT EXISTS discounts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     code VARCHAR(50) NOT NULL UNIQUE,
@@ -129,7 +159,9 @@ CREATE TABLE IF NOT EXISTS discounts (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Table des paramètres du site
+-- =============================================
+-- Table: settings (paramètres du site)
+-- =============================================
 CREATE TABLE IF NOT EXISTS settings (
     id INT AUTO_INCREMENT PRIMARY KEY,
     setting_key VARCHAR(100) NOT NULL UNIQUE,
@@ -140,7 +172,7 @@ CREATE TABLE IF NOT EXISTS settings (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Insertion des paramètres par défaut
+-- Paramètres par défaut
 INSERT INTO settings (setting_key, setting_value, setting_group) VALUES
 ('site_name', 'MODE ET TENDANCE', 'general'),
 ('site_email', 'contact@modetetendance.com', 'general'),
@@ -154,6 +186,62 @@ INSERT INTO settings (setting_key, setting_value, setting_group) VALUES
 ('admin_email_notification', '1', 'notifications'),
 ('maintenance_mode', '0', 'general');
 
--- Création d'un administrateur par défaut (mot de passe: admin123)
+-- =============================================
+-- Table: login_attempts (protection force brute)
+-- - Utilisée par includes/classes/BruteForceProtection.php
+-- =============================================
+CREATE TABLE IF NOT EXISTS login_attempts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ip_address VARCHAR(45) NOT NULL,
+    username VARCHAR(255) DEFAULT NULL,
+    attempts INT NOT NULL DEFAULT 0,
+    last_attempt DATETIME NOT NULL,
+    blocked_until DATETIME DEFAULT NULL,
+    UNIQUE KEY ip_username (ip_address, username),
+    KEY idx_ip (ip_address),
+    KEY idx_username (username),
+    KEY idx_blocked_until (blocked_until)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- =============================================
+-- Table: addresses (adresses utilisateurs)
+-- - Pour adresses de livraison/facturation
+-- =============================================
+CREATE TABLE IF NOT EXISTS addresses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    type ENUM('shipping','billing') DEFAULT 'shipping',
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    phone VARCHAR(20),
+    address TEXT,
+    city VARCHAR(100),
+    postal_code VARCHAR(20),
+    country VARCHAR(100),
+    is_default BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    CONSTRAINT fk_addresses_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    INDEX idx_user_type (user_id, type)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- =============================================
+-- Table: password_resets (réinitialisation mot de passe)
+-- =============================================
+CREATE TABLE IF NOT EXISTS password_resets (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    token VARCHAR(255) NOT NULL UNIQUE,
+    expires_at DATETIME NOT NULL,
+    used_at DATETIME DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_password_resets_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    INDEX idx_user_token (user_id, token)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- =============================================
+-- Données initiales
+-- =============================================
+-- Administrateur par défaut (mot de passe: admin123)
 INSERT INTO users (first_name, last_name, email, password, is_admin) VALUES
 ('Admin', 'System', 'admin@modetetendance.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 1);

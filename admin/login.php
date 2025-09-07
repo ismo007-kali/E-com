@@ -1,9 +1,15 @@
 <?php
-require_once '../includes/config.php';
+// Démarrer la session si elle n'est pas déjà démarrée
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once __DIR__ . '/../includes/config.php';
+require_once __DIR__ . '/../includes/init.php';
 
 // Rediriger si déjà connecté
 if (is_logged_in() && is_admin()) {
-    redirect('dashboard.php');
+    redirect('admin/dashboard.php');
 }
 
 $error = '';
@@ -27,10 +33,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_name'] = $user['first_name'] . ' ' . $user['last_name'];
             $_SESSION['is_admin'] = true;
             
-            // Mettre à jour la date de dernière connexion
-            $pdo->prepare("UPDATE users SET last_login = NOW() WHERE id = ?")->execute([$user['id']]);
+            try {
+                // Essayer de mettre à jour la date de dernière connexion
+                $pdo->prepare("UPDATE users SET last_login = NOW() WHERE id = ?")->execute([$user['id']]);
+            } catch (PDOException $e) {
+                // Si la colonne n'existe pas, on continue sans erreur
+                error_log("La colonne last_login n'existe pas : " . $e->getMessage());
+            }
             
-            redirect('dashboard.php');
+            redirect('/admin/dashboard.php');
         } else {
             $error = 'Email ou mot de passe incorrect';
         }

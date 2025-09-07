@@ -1,5 +1,5 @@
 <?php
-require_once 'header.php';
+require_once __DIR__ . '/../includes/layout/header.php';
 
 ?>
 
@@ -18,9 +18,9 @@ require_once 'header.php';
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1674844819033.png">
+            <a href="images/1674844819033.png">
               <div class="img-box">
-                <img src="images\1674844789640.png" alt="">
+                <img src="images/1674844789640.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -43,9 +43,9 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1674844977107.png">
+            <a href="images/1674844977107.png">
               <div class="img-box">
-                <img src="images\1674844977107.png" alt="">
+                <img src="images/1674844977107.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -68,9 +68,9 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1674844876148.png">
+            <a href="images/1674844876148.png">
               <div class="img-box">
-                <img src="images\1695466489698.png" alt="">
+                <img src="images/1695466489698.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -93,9 +93,9 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1674852221957.png">
+            <a href="images/1674852221957.png">
               <div class="img-box">
-                <img src="images\1674852212106.png" alt="">
+                <img src="images/1674852212106.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -143,7 +143,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1681039067332.png">
+            <a href="images/1681039067332.png">
               <div class="img-box">
                 <img src="images/1681039061375.png" alt="">
               </div>
@@ -168,7 +168,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466489574.jpg">
+            <a href="images/1695466489574.jpg">
               <div class="img-box">
                 <img src="images/1695466489756.png" alt="">
               </div>
@@ -193,7 +193,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1681040163718.png">
+            <a href="images/1681040163718.png">
               <div class="img-box">
                 <img src="images/1681040160417.png" alt="">
               </div>
@@ -227,9 +227,9 @@ require_once 'header.php';
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\WhatsApp Image 2023-01-28 at 00.15.20.jpeg">
+            <a href="images/WhatsApp Image 2023-01-28 at 00.15.20.jpeg">
               <div class="img-box">
-                <img src="images\WhatsApp_Image_2023-01-28_at_00.15.30-removebg-preview.png" alt="">
+                <img src="images/WhatsApp_Image_2023-01-28_at_00.15.30-removebg-preview.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -252,9 +252,9 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1681040579572.png">
+            <a href="images/1681040579572.png">
               <div class="img-box">
-                <img src="images\1681040576493.png" alt="">
+                <img src="images/1681040576493.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -277,9 +277,9 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1674242216180.png">
+            <a href="images/1674242216180.png">
               <div class="img-box">
-                <img src="images\WhatsApp_Image_2023-01-20_at_11.43.19-removebg-preview.png" alt="">
+                <img src="images/WhatsApp_Image_2023-01-20_at_11.43.19-removebg-preview.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -302,9 +302,9 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\WhatsApp Image 2023-02-26 at 02.55.45.jpeg">
+            <a href="images/WhatsApp Image 2023-02-26 at 02.55.45.jpeg">
               <div class="img-box">
-                <img src="images\WhatsApp_Image_2023-01-28_at_00.14.54-removebg-preview.png" alt="">
+                <img src="images/WhatsApp_Image_2023-01-28_at_00.14.54-removebg-preview.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -327,7 +327,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\WhatsApp Image 2023-02-26 at 07.07.19.jpeg">
+            <a href="images/WhatsApp Image 2023-02-26 at 07.07.19.jpeg">
               <div class="img-box">
                 <img src="images/WhatsApp Image 2023-02-26 at 07.07.41.png" alt="">
               </div>
@@ -352,7 +352,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1681039987191.png">
+            <a href="images/1681039987191.png">
               <div class="img-box">
                 <img src="images/1681039983575.png" alt="">
               </div>
@@ -377,7 +377,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1681040235782.png">
+            <a href="images/1681040235782.png">
               <div class="img-box">
                 <img src="images/1681040233250.png" alt="">
               </div>
@@ -442,9 +442,9 @@ require_once 'header.php';
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1674242594690.png">
+            <a href="images/1674242594690.png">
               <div class="img-box">
-                <img src="images\1674242575738.png" alt="">
+                <img src="images/1674242575738.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -467,7 +467,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466490071.jpg">
+            <a href="images/1695466490071.jpg">
               <div class="img-box">
                 <img src="images/1681039432124.png" alt="">
               </div>
@@ -492,7 +492,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1681040296544.png">
+            <a href="images/1681040296544.png">
               <div class="img-box">
                 <img src="images/1681040201684.png" alt="">
               </div>
@@ -517,7 +517,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1681038889251.png">
+            <a href="images/1681038889251.png">
               <div class="img-box">
                 <img src="images/1681035750591.png" alt="">
               </div>
@@ -542,7 +542,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1681040471695.png">
+            <a href="images/1681040471695.png">
               <div class="img-box">
                 <img src="images/1681040465741.png" alt="">
               </div>
@@ -568,7 +568,7 @@ require_once 'header.php';
 
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466489769.jpg">
+            <a href="images/1695466489769.jpg">
               <div class="img-box">
                 <img src="images/1695466489710.png" alt="">
               </div>
@@ -593,7 +593,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466489866.jpg">
+            <a href="images/1695466489866.jpg">
               <div class="img-box">
                 <img src="images/1695466489854.png" alt="">
               </div>
@@ -618,7 +618,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466489583.jpg">
+            <a href="images/1695466489583.jpg">
               <div class="img-box">
                 <img src="images/1695466489591.png" alt="">
               </div>
@@ -654,7 +654,7 @@ require_once 'header.php';
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466489830.jpg">
+            <a href="images/1695466489830.jpg">
               <div class="img-box">
                 <img src="images/1695466489842.png" alt="">
               </div>
@@ -679,7 +679,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466489975.jpg">
+            <a href="images/1695466489975.jpg">
               <div class="img-box">
                 <img src="images/1695466489937.png" alt="">
               </div>
@@ -704,7 +704,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466489999.jpg">
+            <a href="images/1695466489999.jpg">
               <div class="img-box">
                 <img src="images/1695466489986.png" alt="">
               </div>
@@ -729,7 +729,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466490105.jpg">
+            <a href="images/1695466490105.jpg">
               <div class="img-box">
                 <img src="images/1695466490035.png" alt="">
               </div>
@@ -754,7 +754,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466489914.jpg">
+            <a href="images/1695466489914.jpg">
               <div class="img-box">
                 <img src="images/1695466490059.png" alt="">
               </div>
@@ -780,7 +780,7 @@ require_once 'header.php';
         
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466490023.jpg">
+            <a href="images/1695466490023.jpg">
               <div class="img-box">
                 <img src="images/1695466490083.png" alt="">
               </div>
@@ -805,7 +805,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1681039167493.png">
+            <a href="images/1681039167493.png">
               <div class="img-box">
                 <img src="images/1681039167493.png" alt="">
               </div>
@@ -830,7 +830,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1681039175601.png">
+            <a href="images/1681039175601.png">
               <div class="img-box">
                 <img src="images/1681039175601.png" alt="">
               </div>
@@ -920,7 +920,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1679987193324.png">
+            <a href="images/1679987193324.png">
               <div class="img-box">
                 <img src="images/1679987179259.png" alt="">
               </div>
@@ -945,7 +945,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1678297554487.png">
+            <a href="images/1678297554487.png">
               <div class="img-box">
                 <img src="images/1665007073226.png" alt="">
               </div>
@@ -970,7 +970,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1675148436524.png">
+            <a href="images/1675148436524.png">
               <div class="img-box">
                 <img src="images/1675148398382.png" alt="">
               </div>
@@ -995,7 +995,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1675180743609.png">
+            <a href="images/1675180743609.png">
               <div class="img-box">
                 <img src="images/1675180738185.png" alt="">
               </div>
@@ -1020,7 +1020,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466489684.jpg">
+            <a href="images/1695466489684.jpg">
               <div class="img-box">
                 <img src="images/1695466489672.png" alt="">
               </div>
@@ -1045,7 +1045,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1678297554487.png">
+            <a href="images/1678297554487.png">
               <div class="img-box">
                 <img src="images/1678297615468.png" alt="">
               </div>
@@ -1075,8 +1075,7 @@ require_once 'header.php';
         <a href="produt.html">
           VOIR TOUS LES PRODUITS
         </a> -->
-
-  <section class="shop_section layout_padding" id="ORDI">
+   <section class="shop_section layout_padding" id="ORDI">
     <div class="container">
       <div class="heading_container heading_center">
         <H3>
@@ -1086,7 +1085,7 @@ require_once 'header.php';
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1680341581144.png">
+            <a href="images/1680341581144.png">
               <div class="img-box">
                 <img src="images/1671565154273.png" alt="">
               </div>
@@ -1111,7 +1110,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1678714235564.png">
+            <a href="images/1678714235564.png">
               <div class="img-box">
                 <img src="images/1678714246115.png" alt="">
               </div>
@@ -1161,7 +1160,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1675343142865.png">
+            <a href="images/1675343142865.png">
               <div class="img-box">
                 <img src="images/1675343140021.png" alt="">
               </div>
@@ -1211,7 +1210,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466489901.jpg">
+            <a href="images/1695466489901.jpg">
               <div class="img-box">
                 <img src="images/1695466489889.png" alt="">
               </div>
@@ -1236,7 +1235,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="">
+            <a href="images/1696248978233.png">
               <div class="img-box">
                 <img src="images/1696248978233.png" alt="">
               </div>
@@ -1261,7 +1260,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1696248978120.jpg">
+            <a href="images/1696248978120.jpg">
               <div class="img-box">
                 <img src="images/1696248978109.png" alt="">
               </div>
@@ -1301,7 +1300,7 @@ require_once 'header.php';
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466489603.jpg">
+            <a href="images/1695466489603.jpg">
               <div class="img-box">
                 <img src="images/1695466489603.png" alt="">
               </div>
@@ -1326,7 +1325,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466489649.jpg">
+            <a href="images/1695466489649.jpg">
               <div class="img-box">
                 <img src="images/1695466489649.png" alt="">
               </div>
@@ -1351,7 +1350,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466489614.jpg">
+            <a href="images/1695466489614.jpg">
               <div class="img-box">
                 <img src="images/1695466489614.png" alt="">
               </div>
@@ -1376,7 +1375,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466489626.jpg">
+            <a href="images/1695466489626.jpg">
               <div class="img-box">
                 <img src="images/1695466489626.png" alt="">
               </div>
@@ -1401,7 +1400,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466489637.jpg">
+            <a href="images/1695466489637.jpg">
               <div class="img-box">
                 <img src="images/1695466489637.png" alt="">
               </div>
@@ -1426,9 +1425,9 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1696248978085.jpg">
+            <a href="images/1696248978085.jpg">
               <div class="img-box">
-                <img src="images\1696248978179.png" alt="">
+                <img src="images/1696248978179.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -1451,7 +1450,7 @@ require_once 'header.php';
         </div>
          <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1681303976101.png">
+            <a href="images/1681303976101.png">
               <div class="img-box">
                 <img src="images/1681303972616.png" alt="">
               </div>
@@ -1476,7 +1475,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1675437106023.png">
+            <a href="images/1675437106023.png">
               <div class="img-box">
                 <img src="images/16754371025211.png" alt="">
               </div>
@@ -1513,7 +1512,7 @@ require_once 'header.php';
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466490118.jpg">
+            <a href="images/1695466490118.jpg">
               <div class="img-box">
                 <img src="images/1695466490118.png" alt="">
               </div>
@@ -1538,7 +1537,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466490360.jpg">
+            <a href="images/1695466490360.jpg">
               <div class="img-box">
                 <img src="images/1695466490347.png" alt="">
               </div>
@@ -1563,7 +1562,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466490383.jpg">
+            <a href="images/1695466490383.jpg">
               <div class="img-box">
                 <img src="images/1695466490383.png" alt="">
               </div>
@@ -1588,7 +1587,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="">
+            <a href="images/1695466490314.png">
               <div class="img-box">
                 <img src="images/1695466490314.png" alt="">
               </div>
@@ -1613,7 +1612,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466490336.jpg">
+            <a href="images/1695466490336.jpg">
               <div class="img-box">
                 <img src="images/1696248978192.png" alt="">
               </div>
@@ -1633,7 +1632,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1696248978363.jpg">
+            <a href="images/1696248978363.jpg">
               <div class="img-box">
                 <img src="images/1696248978352.png" alt="">
               </div>
@@ -1653,7 +1652,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1683217789883.png">
+            <a href="images/1683217789883.png">
               <div class="img-box">
                 <img src="images/1683217786788.png" alt="">
               </div>
@@ -1673,7 +1672,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466490233.jpg">
+            <a href="images/1695466490233.jpg">
               <div class="img-box">
                 <img src="images/1695466490221.png" alt="">
               </div>
@@ -1693,7 +1692,7 @@ require_once 'header.php';
         </div>
             <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1681735420738.png">
+            <a href="images/1681735420738.png">
               <div class="img-box">
                 <img src="images/1681735416468.png" alt="">
               </div>
@@ -1713,7 +1712,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1695466490268.jpg">
+            <a href="images/1695466490268.jpg">
               <div class="img-box">
                 <img src="images/1695466490291.png" alt="">
               </div>
@@ -1733,7 +1732,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1677502823018.png">
+            <a href="images/1677502823018.png">
               <div class="img-box">
                 <img src="images/1677502829909.png" alt="">
               </div>
@@ -1753,7 +1752,7 @@ require_once 'header.php';
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
-            <a href="images\1682006448527-Récupéré.png">
+            <a href="images/1682006448527-Récupéré.png">
               <div class="img-box">
                 <img src="images/1682006451056.png" alt="">
               </div>
@@ -1782,5 +1781,5 @@ require_once 'header.php';
 <script src="js/custom.js"></script>
 
 <?php
-require_once 'footer.php';
+require_once __DIR__ . '/../includes/layout/footer.php';
 ?>

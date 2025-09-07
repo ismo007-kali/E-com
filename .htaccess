@@ -1,0 +1,8 @@
+# Activer la réécriture d'URL
+RewriteEngine On
+
+# Rediriger les erreurs 404 vers la page personnalisée
+ErrorDocument 404 /E-com/pages/404.php
+
+# Empêcher l'accès direct aux dossiers
+Options -Indexes

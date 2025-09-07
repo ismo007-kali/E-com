@@ -1,0 +1,254 @@
+/* Styles pour les pages de compte utilisateur */
+
+/* Style général */
+.account-container {
+    padding: 2rem 0;
+}
+
+/* Carte de profil */
+.profile-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: all 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+/* Avatar */
+.avatar-circle {
+    width: 80px;
+    height: 80px;
+    background-color: #FF8C00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 0 auto 1rem;
+}
+
+/* Menu latéral */
+.account-sidebar .list-group-item {
+    border: none;
+    border-left: 3px solid transparent;
+    padding: 0.75rem 1.25rem;
+    color: #2c3e50;
+    transition: all 0.3s ease;
+}
+
+.account-sidebar .list-group-item:hover {
+    background-color: #f8f9fa;
+    border-left-color: #FF8C00;
+    padding-left: 1.5rem;
+}
+
+.account-sidebar .list-group-item.active {
+    background-color: #fff7ed;
+    color: #FF8C00;
+    border-left-color: #FF8C00;
+    font-weight: 500;
+}
+
+/* En-tête des cartes */
+.card-header {
+    background: linear-gradient(135deg, #FF8C00 0%, #DC143C 100%);
+    color: white;
+    font-weight: 600;
+    border: none;
+    padding: 1rem 1.25rem;
+}
+
+/* Boutons */
+.btn-primary {
+    background: linear-gradient(135deg, #FF8C00 0%, #DC143C 100%);
+    border-color: transparent;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background: linear-gradient(135deg, #DC143C 0%, #FF8C00 100%);
+    border-color: transparent;
+}
+
+.btn-outline-primary {
+    color: #FF8C00;
+    border-color: #FF8C00;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+    background-color: #FF8C00;
+    border-color: #FF8C00;
+    color: #fff;
+}
+
+/* Tableau des commandes */
+.order-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.order-status {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Formulaire */
+.form-control:focus {
+    border-color: #DC143C;
+    box-shadow: 0 0 0 0.25rem rgba(220, 20, 60, 0.15);
+}
+
+/* Badges */
+.badge {
+    font-weight: 500;
+    padding: 0.4em 0.8em;
+}
+
+/* Alertes */
+.alert {
+    border: none;
+    border-left: 4px solid;
+    border-radius: 0;
+}
+
+.alert-success {
+    background-color: #e8f5e9;
+    border-left-color: #4caf50;
+    color: #2e7d32;
+}
+
+.alert-danger {
+    background-color: #ffebee;
+    border-left-color: #f44336;
+    color: #c62828;
+}
+
+.alert-info {
+    background-color: #e3f2fd;
+    border-left-color: #2196f3;
+    color: #1565c0;
+}
+
+/* Mode sombre */
+[data-bs-theme="dark"] .profile-card,
+[data-bs-theme="dark"] .card {
+    background-color: #2d2d2d;
+    border-color: #3d3d3d;
+}
+
+[data-bs-theme="dark"] .account-sidebar .list-group-item {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border-color: #3d3d3d;
+}
+
+[data-bs-theme="dark"] .account-sidebar .list-group-item:hover {
+    background-color: #3d3d3d;
+}
+
+[data-bs-theme="dark"] .account-sidebar .list-group-item.active {
+    background-color: #3d3d3d;
+    color: #FF8C00;
+}
+
+[data-bs-theme="dark"] .order-table th {
+    background-color: #3d3d3d;
+    color: #e0e0e0;
+}
+
+[data-bs-theme="dark"] .order-table td {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border-color: #3d3d3d;
+}
+
+[data-bs-theme="dark"] .form-control {
+    background-color: #3d3d3d;
+    border-color: #4d4d4d;
+    color: #e0e0e0;
+}
+
+[data-bs-theme="dark"] .form-control:focus {
+    background-color: #3d3d3d;
+    color: #e0e0e0;
+    border-color: #FF8C00;
+    box-shadow: 0 0 0 0.25rem rgba(255, 140, 0, 0.25);
+}
+
+[data-bs-theme="dark"] .form-control::placeholder {
+    color: #8e8e8e;
+}
+
+[data-bs-theme="dark"] .form-text {
+    color: #8e8e8e;
+}
+
+[data-bs-theme="dark"] .btn-outline-secondary {
+    color: #e0e0e0;
+    border-color: #5a5a5a;
+}
+
+[data-bs-theme="dark"] .btn-outline-secondary:hover {
+    background-color: #5a5a5a;
+    border-color: #5a5a5a;
+}
+
+/* Responsive */
+@media (max-width: 767.98px) {
+    .account-sidebar {
+        margin-bottom: 2rem;
+    }
+    
+    .profile-card {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Animation de chargement */
+.loading-spinner {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border: 0.25rem solid rgba(107, 115, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #6b73ff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Style pour les icônes dans les boutons */
+.btn i {
+    margin-right: 0.5rem;
+}
+
+/* Style pour les onglets */
+.nav-tabs .nav-link {
+    color: #2c3e50;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+    color: #6b73ff;
+    background-color: transparent;
+    border-bottom: 2px solid #6b73ff;
+}
+
+.nav-tabs .nav-link:hover {
+    border-color: transparent;
+    color: #6b73ff;
+}

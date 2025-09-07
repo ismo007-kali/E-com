@@ -1,4 +1,4 @@
-<?php require_once 'header.php'; ?>
+<?php require_once __DIR__ . '/../includes/layout/header.php'; ?>
 
 <!-- Témoignages Section -->
 <section class="client_section layout_padding">
@@ -62,4 +62,4 @@
   </div>
 </section>
 
-<?php require_once 'footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/layout/footer.php'; ?>

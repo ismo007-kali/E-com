@@ -1,5 +1,5 @@
 <?php
-require_once 'header.php';
+require_once __DIR__ . '/../includes/layout/header.php';
 ?>
   <!-- end hero area -->
 
@@ -72,4 +72,4 @@ require_once 'header.php';
   </div>
 </section>
 
-<?php require_once 'footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/layout/footer.php'; ?>

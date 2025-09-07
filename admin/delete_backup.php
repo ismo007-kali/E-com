@@ -1,7 +1,8 @@
 <?php
 // Vérifier les droits d'administration
 require_once '../includes/init.php';
-requireAdmin();
+// Utiliser la fonction correcte définie dans includes/init.php
+require_admin('/admin/login.php');
 
 // Vérifier si un fichier a été spécifié
 $file = isset($_GET['file']) ? $_GET['file'] : '';
@@ -13,11 +14,23 @@ if (empty($file)) {
 }
 
 // Nettoyer le chemin du fichier pour éviter les attaques par répertoire
-$file = str_replace(['..', '//'], '', $file);
-$filePath = realpath(ROOT_PATH . $file);
+$file = str_replace(['..', '\\', '//'], '', $file);
 
-// Vérifier que le fichier est bien dans le dossier des sauvegardes
-if (strpos($filePath, realpath(ROOT_PATH . 'backups')) !== 0) {
+// Chemin du dossier des sauvegardes
+$backupsDir = realpath(ROOT_PATH . 'backups');
+
+// Si le dossier des backups est introuvable, refuser l'opération
+if ($backupsDir === false) {
+    $_SESSION['error'] = "Le dossier des sauvegardes est introuvable.";
+    header('Location: backup.php');
+    exit;
+}
+
+// Construire le chemin complet du fichier demandé
+$filePath = realpath($backupsDir . DIRECTORY_SEPARATOR . ltrim($file, DIRECTORY_SEPARATOR));
+
+// Vérifier que le chemin est valide et bien dans le dossier des sauvegardes
+if ($filePath === false || strpos($filePath, $backupsDir) !== 0) {
     $_SESSION['error'] = "Accès non autorisé à ce fichier.";
     header('Location: backup.php');
     exit;
