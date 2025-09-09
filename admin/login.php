@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
         <div class="login-container">
             <div class="logo">
-                <img src="../images/logo/logo.png" alt="<?= SITE_NAME ?>" class="img-fluid">
+                <img src="<?= BASE_URL ?>/images/logo/logo.png" alt="<?= SITE_NAME ?>" class="img-fluid">
                 <h3 class="mt-3">Espace Administrateur</h3>
             </div>
             
@@ -129,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
             
             <div class="text-center mt-4">
-                <a href="../index.php" class="text-decoration-none">
+                <a href="<?= BASE_URL ?>/index.php" class="text-decoration-none">
                     <i class="fas fa-arrow-left me-1"></i> Retour au site
                 </a>
             </div>

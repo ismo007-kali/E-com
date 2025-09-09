@@ -27,12 +27,6 @@ define('DB_CHARSET', 'utf8mb4');
 // URL de base du site. À ajuster si le nom du dossier ou le domaine change.
 define('BASE_URL', 'http://localhost/E-com');
 
-// Chemin de base pour les liens (basé sur le répertoire du projet)
-$base_dir = str_replace('\\', '/', dirname(dirname(__FILE__)));
-$doc_root = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT']);
-$base_path = trim(str_replace($doc_root, '', $base_dir), '/');
-define('BASE_PATH', '/' . $base_path . '/');
-
 // Répertoires de l'application
 define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 define('APP_PATH', ROOT_PATH . 'app' . DIRECTORY_SEPARATOR);

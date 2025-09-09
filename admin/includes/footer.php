@@ -4,6 +4,8 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Dark mode JS (admin) -->
+    <script src="<?= BASE_URL ?>/js/js/dark-mode.js"></script>
     <script>
         // Toggle Sidebar
         document.addEventListener('DOMContentLoaded', function() {
@@ -47,6 +49,37 @@
                     }
                 });
             });
+        });
+        
+        // Raccorder le bouton de thème du header admin au ThemeManager
+        document.addEventListener('DOMContentLoaded', function() {
+            const adminToggle = document.getElementById('theme-toggle');
+            if (adminToggle) {
+                // Mettre à jour l'icône au chargement
+                const updateIcon = () => {
+                    const icon = adminToggle.querySelector('i');
+                    if (!icon) return;
+                    const isDark = document.body.classList.contains('dark-mode');
+                    icon.classList.toggle('fa-moon', !isDark);
+                    icon.classList.toggle('fa-sun', isDark);
+                };
+                
+                adminToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (window.themeManager) {
+                        window.themeManager.toggleTheme();
+                    } else {
+                        // Fallback simple
+                        document.body.classList.toggle('dark-mode');
+                    }
+                    updateIcon();
+                });
+                
+                // Synchroniser sur changement global
+                window.addEventListener('themeChanged', updateIcon);
+                // Initial
+                updateIcon();
+            }
         });
     </script>
     

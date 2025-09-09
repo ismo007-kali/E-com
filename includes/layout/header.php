@@ -23,16 +23,16 @@ require_once __DIR__ . '/../init.php';
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>/css/css/bootstrap.css" />
 
   <!-- Custom styles for this template -->
-  <link href="<?= BASE_URL ?>/css/style.css" rel="stylesheet" />
+  <link href="<?= BASE_URL ?>/css/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="<?= BASE_URL ?>/css/responsive.css" rel="stylesheet" />
+  <link href="<?= BASE_URL ?>/css/css/responsive.css" rel="stylesheet" />
   <!-- Dark mode styles -->
-  <link href="<?= BASE_URL ?>/css/dark-mode.css" rel="stylesheet" />
+  <link href="<?= BASE_URL ?>/css/css/dark-mode.css" rel="stylesheet" />
   <!-- Account pages styles -->
-  <link href="<?= BASE_URL ?>/css/account.css" rel="stylesheet" />
+  <link href="<?= BASE_URL ?>/css/css/account.css" rel="stylesheet" />
   
 </head>
 
@@ -50,7 +50,7 @@ require_once __DIR__ . '/../init.php';
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav  ">
-            <li class="nav-item <?php echo (strpos($_SERVER['REQUEST_URI'], 'index.php') !== false || $_SERVER['REQUEST_URI'] === BASE_PATH) ? 'active' : ''; ?>">
+            <li class="nav-item <?php echo ($_SERVER['REQUEST_URI'] === '/E-com/' || $_SERVER['REQUEST_URI'] === '/E-com/index.php') ? 'active' : ''; ?>">
               <a class="nav-link" href="<?= BASE_URL ?>"><strong>ACCUEIL</strong> <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item <?php echo (strpos($_SERVER['REQUEST_URI'], 'shop.php') !== false) ? 'active' : ''; ?>">

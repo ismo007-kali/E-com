@@ -12,7 +12,7 @@ if (!is_logged_in() || !is_admin()) {
     <title><?= isset($page_title) ? $page_title . ' - ' : '' ?><?= SITE_NAME ?> Admin</title>
     
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../images/logo/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= BASE_URL ?>/images/logo/favicon.ico" type="image/x-icon">
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -23,8 +23,13 @@ if (!is_logged_in() || !is_admin()) {
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     
+    <!-- Dark mode CSS -->
+    <link href="<?= BASE_URL ?>/css/css/dark-mode.css" rel="stylesheet" />
+    
     <!-- Custom CSS -->
     <style>
+        /* Masquer le bouton flottant global (soleil/lune) sur l'admin */
+        .theme-toggle { display: none !important; }
         :root {
             --primary-color: #FF8C00;
             --secondary-color: #DC143C;
@@ -370,7 +375,7 @@ if (!is_logged_in() || !is_admin()) {
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="sidebar-header">
-            <img src="../images/logo/logo-white.png" alt="Logo" class="img-fluid">
+            <img src="<?= BASE_URL ?>/images/logo/logo-white.png" alt="Logo" class="img-fluid">
             <h5 class="mt-2">Tableau de bord</h5>
         </div>
         
@@ -440,6 +445,10 @@ if (!is_logged_in() || !is_admin()) {
             </div>
             
             <div class="header-right">
+                <!-- Bouton mode nuit/jour -->
+                <button id="theme-toggle" class="btn btn-link me-2" data-bs-toggle="tooltip" title="Basculer thème">
+                    <i class="fa fa-moon"></i>
+                </button>
                 <div class="dropdown">
                     <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class='bx bxs-bell bx-sm'></i>

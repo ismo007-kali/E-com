@@ -110,13 +110,13 @@
 </footer>
 
 <!-- jQuery and Bootstrap JS -->
-<script src="<?= BASE_URL ?>/js/jquery-3.4.1.min.js"></script>
-<script src="<?= BASE_URL ?>/js/bootstrap.js"></script>
+<script src="<?= BASE_URL ?>/js/js/jquery-3.4.1.min.js"></script>
+<script src="<?= BASE_URL ?>/js/js/bootstrap.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<script src="<?= BASE_URL ?>/js/custom.js"></script>
+<script src="<?= BASE_URL ?>/js/js/custom.js"></script>
 
 <!-- Dark Mode JavaScript -->
-<script src="<?= BASE_URL ?>/js/dark-mode.js"></script>
+<script src="<?= BASE_URL ?>/js/js/dark-mode.js"></script>
 <script>
 // Test immédiat du mode nuit
 console.log('Test du mode nuit - Script inline');

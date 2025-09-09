@@ -1,17 +1,12 @@
 <?php
-// Démarrer la session si elle n'est pas déjà démarrée
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-require_once __DIR__ . '/../includes/config.php';
 require_once __DIR__ . '/../includes/init.php';
 
-// Vérifier si l'utilisateur est connecté et est un administrateur
 if (!is_logged_in() || !is_admin()) {
     redirect('login.php');
-    exit();
 }
+
+$page_title = 'Tableau de bord';
+require_once __DIR__ . '/includes/header.php';
 
 // Récupérer les statistiques
 $stats = [
@@ -398,251 +393,104 @@ $recent_orders = $pdo->query(
             </div>
         </div>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Header -->
-            <div class="header">
-                <div class="header-left">
-                    <button class="btn btn-sm btn-outline-secondary d-md-none" id="sidebar-toggle">
-                        <i class='bx bx-menu'></i>
-                    </button>
-                    <h3>Tableau de bord</h3>
-                </div>
-                
-                <div class="header-right">
-                    <div class="dropdown">
-                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class='bx bxs-bell bx-sm'></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                3
-                            </span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><h6 class="dropdown-header">Notifications</h6></li>
-                            <li><a class="dropdown-item" href="#">Nouvelle commande #1234</a></li>
-                            <li><a class="dropdown-item" href="#">Produit en rupture de stock</a></li>
-                            <li><a class="dropdown-item" href="#">Nouvel avis client</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item text-primary" href="#">Voir toutes les notifications</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="dropdown user-dropdown ms-3">
-                        <div class="user-avatar" data-bs-toggle="dropdown">
-                            <?= strtoupper(substr($_SESSION['user_name'], 0, 1)) ?>
-                        </div>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li class="dropdown-header">
-                                <h6><?= htmlspecialchars($_SESSION['user_name']) ?></h6>
-                                <span>Administrateur</span>
-                            </li>
-                            <li><a class="dropdown-item" href="profile.php"><i class='bx bx-user me-2'></i>Mon profil</a></li>
-                            <li><a class="dropdown-item" href="settings.php"><i class='bx bx-cog me-2'></i>Paramètres</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item text-danger" href="logout.php"><i class='bx bx-log-out me-2'></i>Déconnexion</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Stats Cards -->
-            <div class="container mx-auto px-4 py-8">
-                <h1 class="text-2xl font-bold mb-6">Tableau de bord</h1>
-                
-                <!-- Cartes de statistiques -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <div class="flex items-center">
-                            <div class="p-3 rounded-full bg-blue-100 text-blue-600 mr-4">
-                                <i class="fas fa-box text-xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-gray-500 text-sm">Produits</p>
-                                <h3 class="text-2xl font-bold"><?= number_format($stats['total_products']) ?></h3>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <div class="flex items-center">
-                            <div class="p-3 rounded-full bg-green-100 text-green-600 mr-4">
-                                <i class="fas fa-shopping-cart text-xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-gray-500 text-sm">Commandes</p>
-                                <h3 class="text-2xl font-bold"><?= number_format($stats['total_orders']) ?></h3>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <div class="flex items-center">
-                            <div class="p-3 rounded-full bg-purple-100 text-purple-600 mr-4">
-                                <i class="fas fa-users text-xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-gray-500 text-sm">Clients</p>
-                                <h3 class="text-2xl font-bold"><?= number_format($stats['total_customers']) ?></h3>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <div class="flex items-center">
-                            <div class="p-3 rounded-full bg-yellow-100 text-yellow-600 mr-4">
-                                <i class="fas fa-euro-sign text-xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-gray-500 text-sm">Chiffre d'affaires</p>
-                                <h3 class="text-2xl font-bold"><?= number_format($stats['total_revenue'], 2, ',', ' ') ?> €</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Dernières commandes -->
-                <div class="bg-white rounded-lg shadow overflow-hidden mb-8">
-                    <div class="px-6 py-4 border-b border-gray-200">
-                        <h2 class="text-lg font-medium text-gray-900">Dernières commandes</h2>
-                    </div>
-                    <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-50">
-                                <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">N° Commande</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Client</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Montant</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Statut</th>
-                                    <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                <?php if (empty($recent_orders)): ?>
-                                    <tr>
-                                        <td colspan="6" class="px-6 py-4 text-center text-gray-500">Aucune commande récente</td>
-                                    </tr>
-                                <?php else: ?>
-                                    <?php foreach ($recent_orders as $order): ?>
-                                        <tr>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#<?= $order['id'] ?></td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <?= htmlspecialchars($order['first_name'] . ' ' . $order['last_name']) ?>
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <?= date('d/m/Y', strtotime($order['created_at'])) ?>
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <?= number_format($order['total_amount'], 2, ',', ' ') ?> €
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                <?php
-                                                $statusClasses = [
-                                                    'pending' => 'bg-yellow-100 text-yellow-800',
-                                                    'processing' => 'bg-blue-100 text-blue-800',
-                                                    'shipped' => 'bg-indigo-100 text-indigo-800',
-                                                    'delivered' => 'bg-green-100 text-green-800',
-                                                    'cancelled' => 'bg-red-100 text-red-800'
-                                                ];
-                                                $statusText = [
-                                                    'pending' => 'En attente',
-                                                    'processing' => 'En cours',
-                                                    'shipped' => 'Expédiée',
-                                                    'delivered' => 'Livrée',
-                                                    'cancelled' => 'Annulée'
-                                                ];
-                                                $status = $order['status'] ?? 'pending';
-                                                ?>
-                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full <?= $statusClasses[$status] ?>">
-                                                    <?= $statusText[$status] ?>
-                                                </span>
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="order-view.php?id=<?= $order['id'] ?>" class="text-indigo-600 hover:text-indigo-900 mr-3">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="bg-gray-50 px-6 py-3 flex items-center justify-between border-t border-gray-200">
-                        <div class="text-sm text-gray-500">
-                            Affichage des 5 dernières commandes
-                        </div>
-                        <a href="orders.php" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                            Voir toutes les commandes <span aria-hidden="true">&rarr;</span>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Graphique des ventes (à implémenter avec Chart.js) -->
-                <div class="bg-white rounded-lg shadow overflow-hidden mb-8">
-                    <div class="px-6 py-4 border-b border-gray-200">
-                        <h2 class="text-lg font-medium text-gray-900">Ventes des 30 derniers jours</h2>
-                    </div>
-                    <div class="p-6">
-                        <canvas id="salesChart" class="w-full h-64"></canvas>
-                    </div>
-                </div>
-            </div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="stats-card">
+            <div class="icon products"><i class="fas fa-box"></i></div>
+            <h3><?= number_format($stats['total_products']) ?></h3>
+            <p>Produits</p>
         </div>
-
-        <!-- Scripts -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script>
-            // Données pour le graphique (à remplacer par des données réelles)
-            const ctx = document.getElementById('salesChart').getContext('2d');
-            const salesChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: Array.from({length: 30}, (_, i) => {
-                        const date = new Date();
-                        date.setDate(date.getDate() - (29 - i));
-                        return date.toLocaleDateString('fr-FR', {day: '2-digit', month: '2-digit'});
-                    }),
-                    datasets: [{
-                        label: 'Ventes',
-                        data: Array.from({length: 30}, () => Math.floor(Math.random() * 1000) + 500),
-                        backgroundColor: 'rgba(79, 70, 229, 0.1)',
-                        borderColor: 'rgba(79, 70, 229, 1)',
-                        borderWidth: 2,
-                        tension: 0.3,
-                        fill: true
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            grid: {
-                                drawBorder: false
-                            },
-                            ticks: {
-                                callback: function(value) {
-                                    return value + ' €';
-                                }
-                            }
-                        },
-                        x: {
-                            grid: {
-                                display: false
-                            }
-                        }
-                    }
-                }
-            });
-        </script>
     </div>
-</body>
-</html>
+    <div class="col-md-3">
+        <div class="stats-card">
+            <div class="icon orders"><i class="fas fa-shopping-cart"></i></div>
+            <h3><?= number_format($stats['total_orders']) ?></h3>
+            <p>Commandes</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stats-card">
+            <div class="icon customers"><i class="fas fa-users"></i></div>
+            <h3><?= number_format($stats['total_customers']) ?></h3>
+            <p>Clients</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stats-card">
+            <div class="icon revenue"><i class="fas fa-euro-sign"></i></div>
+            <h3><?= number_format($stats['total_revenue'], 2, ',', ' ') ?> F CFA</h3>
+            <p>Chiffre d'affaires</p>
+        </div>
+    </div>
+</div>
+                
+<!-- Dernières commandes -->
+<div class="card">
+    <div class="card-header">
+        <h5>Dernières commandes</h5>
+        <a href="orders.php" class="btn btn-sm btn-outline-primary">Voir tout</a>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>N° Commande</th>
+                        <th>Client</th>
+                        <th>Date</th>
+                        <th>Montant</th>
+                        <th>Statut</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (empty($recent_orders)): ?>
+                        <tr>
+                            <td colspan="6" class="text-center">Aucune commande récente</td>
+                        </tr>
+                    <?php else: ?>
+                        <?php foreach ($recent_orders as $order): ?>
+                            <tr>
+                                <td>#<?= $order['id'] ?></td>
+                                <td><?= htmlspecialchars($order['customer_name']) ?></td>
+                                <td><?= date('d/m/Y', strtotime($order['created_at'])) ?></td>
+                                <td><?= number_format($order['total_amount'], 2, ',', ' ') ?> F CFA</td>
+                                <td>
+                                    <?php
+                                    $statusClasses = [
+                                        'en_attente' => 'badge-warning',
+                                        'en_cours' => 'badge-info',
+                                        'expediee' => 'badge-primary',
+                                        'livre' => 'badge-success',
+                                        'annulee' => 'badge-danger'
+                                    ];
+                                    $statusText = [
+                                        'en_attente' => 'En attente',
+                                        'en_cours' => 'En cours',
+                                        'expediee' => 'Expédiée',
+                                        'livre' => 'Livrée',
+                                        'annulee' => 'Annulée'
+                                    ];
+                                    $status = $order['status'] ?? 'en_attente';
+                                    ?>
+                                    <span class="badge <?= $statusClasses[$status] ?? 'badge-secondary' ?>">
+                                        <?= $statusText[$status] ?? ucfirst($status) ?>
+                                    </span>
+                                </td>
+                                <td>
+                                    <a href="order_details.php?id=<?= $order['id'] ?>" class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip" title="Voir les détails">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<?php
+require_once __DIR__ . '/includes/footer.php';
+?>
